@@ -34,7 +34,7 @@ pipeline {
         stage('image build') {
             steps {
                 script {
-                    if (branch == 'main') {
+                    if (branch == 'main'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ) {
                         sh 'echo "Main branch build"'
                     } else {
                         sh 'echo "Other branch"'

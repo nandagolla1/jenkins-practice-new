@@ -64,8 +64,10 @@ pipeline {
                     
                     echo 'Deploying..'
                 }
+            }
         }
-        }
+    }
+
 
     post { 
         always { 
@@ -78,6 +80,5 @@ pipeline {
         failure { 
             echo 'Hello Failure'
         }
-    }
     }
 }

@@ -9,9 +9,26 @@ pipeline {
         timeout(time: 1, unit: 'SECONDS')
     }
     stages {
-        stage('Example') {
+        stage('image build') {
             steps {
-                echo 'Hello World'
+                script {
+                    if (env.BRANCH_NAME == 'main') {
+                        sh 'echo "Main branch build"'
+                    } else {
+                        sh 'echo "Other branch"'
+                    }
+                }
+            }
+
+        stage('testing') {
+            steps {
+                echo 'testing....'
+            }
+        }
+
+        stage('deploy') {
+            steps {
+                sh "echo 'deploying....'"
             }
         }
     }

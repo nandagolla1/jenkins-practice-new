@@ -31,6 +31,7 @@ pipeline {
                 sh "echo 'deploying....'"
             }
         }
+        }
     }
 
     post { 

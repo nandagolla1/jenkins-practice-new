@@ -50,15 +50,33 @@ pipeline {
         }
 
         stage('deploy') {
-            steps {
-                sh "echo 'deploying....'"
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                }
             }
+            steps {
+                script{
+                    echo "Hello, ${PERSON}, nice to meet you."
+                    
+                    echo 'Deploying..'
+                }
         }
     }
 
     post { 
         always { 
             echo 'I will always say Hello again!'
+            deleteDir()
+        }
+        success { 
+            echo 'Hello Success'
+        }
+        failure { 
+            echo 'Hello Failure'
         }
     }
 }

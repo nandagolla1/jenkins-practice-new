@@ -19,6 +19,7 @@ pipeline {
                     }
                 }
             }
+        }
 
         stage('testing') {
             steps {
@@ -30,7 +31,6 @@ pipeline {
             steps {
                 sh "echo 'deploying....'"
             }
-        }
         }
     }
 
